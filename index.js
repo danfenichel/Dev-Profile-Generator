@@ -21,7 +21,7 @@ inquirer.prompt([
             "red"
         ]
     }
-]).then(function(res){
+]).then(function (res) {
     // console.log(res.name, res.color);
     const userName = res.name;
     const userColor = res.color
@@ -34,25 +34,41 @@ inquirer.prompt([
 
 function gitHubRequest(queryURL) {
     return axios.get(queryURL)
-    .then(function(gitResponse){
-        const proPic = gitResponse.data.avatar_url + ".png";
+        .then(function (gitResponse) {
 
-        const gitUsername = gitResponse.data.login;
-        // console.log(gitUsername);
+            let userData = {
+                proPic: (gitResponse.data.avatar_url + ".png"),
 
-        const location = gitResponse.data.location;
+                gitUsername: (gitResponse.data.login),
 
-        const profileURL = gitResponse.data.html_url;
+                location: (gitResponse.data.location),
 
-        const blog = gitResponse.data.blog;
+                profileURL: (gitResponse.data.html_url),
 
-        const userBio = gitResponse.data.bio;
+                blog: (gitResponse.data.blog),
 
-        const publicRepos = gitResponse.data.public_repos;
+                userBio: (gitResponse.data.bio),
 
-        const followers = gitResponse.data.followers;
-        // console.log(followers);
+                publicRepos: (gitResponse.data.public_repos),
 
-        const following = gitResponse.data.following;
-    });
+                followers: (gitResponse.data.followers),
+
+                following: (gitResponse.data.following)
+            };
+
+            return userData;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+};
+
+function gitHubStars(starredURL) {
+    return axios.get(starredURL)
+        .then(function (starResponse) {
+            return starResponse.data.length;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 };
