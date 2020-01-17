@@ -1,0 +1,25 @@
+{
+  "name": "Dev-Profile-Generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danfenichel/Dev-Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danfenichel/Dev-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/danfenichel/Dev-Profile-Generator#readme",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "html-pdf": "^2.2.0",
+    "inquirer": "^7.0.3"
+  }
+}

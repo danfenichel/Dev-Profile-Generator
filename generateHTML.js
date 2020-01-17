@@ -171,4 +171,7 @@ function generateHTML(data) {
             } 
            }
         </style>`
-}
+};
+
+// Makes function avaialable to the rest of the program
+module.exports = generateHTML;
