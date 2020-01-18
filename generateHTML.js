@@ -25,7 +25,7 @@ const colors = {
     }
 };
 
-function generateHTML(data) {
+function generateHTML(res, starResponse, userData) {
     return `<!DOCTYPE html>
   <html lang="en">
      <head>
@@ -170,8 +170,56 @@ function generateHTML(data) {
               zoom: .75; 
             } 
            }
-        </style>`
+        </style>
+        </head>
+
+<body>
+    <div class=“wrapper”>
+        <div class=“photo-header”><img class=“photo-header img” src=“${userData.proPic}” alt=“profile-img”>
+            <h3>Hi!</h3>
+            <h3>My name is ${userData.fullName}!</h3>
+            <div class=“links-nav”>
+                <span class=“nav-link”><a href=“https://www.google.com/maps/place/${userData.location}“>${userData.location}
+                        </a> </span> <span class=“nav-link”><a href=“${userData.profileURL}“>Github</a></span>
+                <span class=“nav-link”><a href=“${userData.blog}“>Blog</a></span>
+            </div>
+        </div>
+        <main>
+            <div class=“container”>
+                <div class=“row”>
+                    <h5>${userData.userBio}</h5>
+                </div>
+                <div class=“row”>
+                    <div class=“col”>
+                        <div class=“card”>
+                            <h4>Public Repositories</h4>
+                            <h5>${userData.publicRepos}</h5>
+                        </div>
+                        <div class=“card”>
+                            <h4>Starred Projects</h4>
+                            <h5>${userData.starResponse}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class=“col”>
+                    <div class=“card”>
+                        <h4>Followers</h4>
+                        <h5>${userData.followers}</h5>
+                    </div>
+                    <div class=“card”>
+                        <h4>Following</h4>
+                        <h5>${userData.following}</h5>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+    <footer></footer>
+</body>
+
+</html>`
 };
 
 // Makes function avaialable to the rest of the program
-module.exports = generateHTML;
+module.exports = generateHTML();

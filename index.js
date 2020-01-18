@@ -29,7 +29,15 @@ inquirer.prompt([
     const queryURL = `https://api.github.com/users/${userName}`;
     const starredURL = `https://api.github.com/users/${userName}/starred`;
 
-    gitHubRequest(queryURL);
+    gitHubRequest(queryURL).then(function (userData){
+        gitHubStars(starredURL).then(function (starResponse) {
+            const options = { format: 'Letter' };
+            HTMLToPDF.create(generateHTML(res, starResponse, userData), options).toFile(`./${userName}.pdf`, function (err, response) {
+                if (err) return console.log(err);
+                console.log(response);
+            });
+        });
+    });
 });
 
 function gitHubRequest(queryURL) {
