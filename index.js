@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const axios = require("axios").default;
 const HTMLToPDF = require("html-pdf");
-const generate = require("./generateHTML.js");
+const generate = require("./generateHTML");
 
 inquirer.prompt([
     {
@@ -24,7 +24,7 @@ inquirer.prompt([
 ]).then(function (res) {
     // console.log(res.name, res.color);
     const userName = res.name;
-    const userColor = res.color
+    const userColor = res.color;
 
     const queryURL = `https://api.github.com/users/${userName}`;
     const starredURL = `https://api.github.com/users/${userName}/starred`;
@@ -32,7 +32,7 @@ inquirer.prompt([
     gitHubRequest(queryURL).then(function (userData){
         gitHubStars(starredURL).then(function (starResponse) {
             const options = { format: 'Letter' };
-            HTMLToPDF.create(generateHTML(res, starResponse, userData), options).toFile(`./${userName}.pdf`, function (err, response) {
+            HTMLToPDF.create(generate(res, starResponse, userData), options).toFile(`./${userName}.pdf`, function (err, response) {
                 if (err) return console.log(err);
                 console.log(response);
             });

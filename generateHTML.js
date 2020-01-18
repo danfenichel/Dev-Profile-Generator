@@ -222,4 +222,4 @@ function generateHTML(res, starResponse, userData) {
 };
 
 // Makes function avaialable to the rest of the program
-module.exports = generateHTML();
+module.exports = generateHTML;
