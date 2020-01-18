@@ -39,6 +39,8 @@ function gitHubRequest(queryURL) {
             let userData = {
                 proPic: (gitResponse.data.avatar_url + ".png"),
 
+                fullName: (gitResponse.data.name),
+
                 gitUsername: (gitResponse.data.login),
 
                 location: (gitResponse.data.location),
