@@ -19,7 +19,7 @@
   "homepage": "https://github.com/danfenichel/Dev-Profile-Generator#readme",
   "dependencies": {
     "axios": "^0.19.1",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "inquirer": "^7.0.3"
   }
 }
